@@ -17,7 +17,7 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
-import { Logo, Logomark } from '@/components/Logo'
+import { Logo } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 
@@ -59,11 +59,6 @@ function Header({
           onMouseEnter={() => setLogoHovered(true)}
           onMouseLeave={() => setLogoHovered(false)}
         >
-          <Logomark
-            className="h-8 sm:hidden"
-            invert={invert}
-            filled={logoHovered}
-          />
           <Logo
             className="hidden h-8 sm:block"
             invert={invert}
@@ -71,9 +66,19 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="/contact" invert={invert}>
-            Contact us
-          </Button>
+          <div className="hidden gap-x-8 sm:flex">
+            {' '}
+            {/* Added 'hidden sm:flex' */}
+            <Button href="/AIServicePage" invert={invert}>
+              AI Services
+            </Button>
+            <Button href="/digital-twin" invert={invert}>
+              Digital Twin
+            </Button>
+            <Button href="/contact" invert={invert}>
+              Contact us
+            </Button>
+          </div>
           <button
             ref={toggleRef}
             type="button"
@@ -134,6 +139,11 @@ function Navigation() {
         <NavigationItem href="/process">Our Process</NavigationItem>
         <NavigationItem href="/blog">Blog</NavigationItem>
       </NavigationRow>
+      <NavigationRow className="md:hidden">
+        {' '}
+        <NavigationItem href="/AIServicePage">AI Service</NavigationItem>
+        <NavigationItem href="/digital-twin">Digital Twin</NavigationItem>
+      </NavigationRow>
     </nav>
   )
 }
@@ -167,9 +177,8 @@ function RootLayoutInner({ children }) {
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header>
         <div
-          className="absolute top-2 right-0 left-0 z-40 pt-14"
+          className="absolute left-0 right-0 top-2 z-40 pt-14"
           aria-hidden={expanded ? 'true' : undefined}
-          inert={expanded ? '' : undefined}
         >
           <Header
             panelId={panelId}
@@ -191,10 +200,10 @@ function RootLayoutInner({ children }) {
           style={{ height: expanded ? 'auto' : '0.5rem' }}
           className="relative z-50 overflow-hidden bg-neutral-950 pt-2"
           aria-hidden={expanded ? undefined : 'true'}
-          inert={expanded ? undefined : ''}
+         
         >
           <motion.div layout className="bg-neutral-800">
-            <div ref={navRef} className="bg-neutral-950 pt-14 pb-16">
+            <div ref={navRef} className="bg-neutral-950 pb-16 pt-14">
               <Header
                 invert
                 panelId={panelId}
@@ -212,10 +221,10 @@ function RootLayoutInner({ children }) {
             <Navigation />
             <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
               <Container>
-                <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
+                <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
-                      Our offices
+                      Our office
                     </h2>
                     <Offices
                       invert

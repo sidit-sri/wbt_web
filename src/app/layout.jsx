@@ -4,10 +4,11 @@ import '@/styles/tailwind.css'
 
 export const metadata = {
   title: {
-    template: '%s - Studio',
-    default: 'Studio - Award winning developer studio based in Denmark',
+    template: '%s - Webuildtech',
+    default: 'Webuildtech - Pioneering AI Solutions, Full Stack Development, and Design Innovation',
   },
-}
+};
+
 
 export default function Layout({ children }) {
   return (
