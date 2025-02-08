@@ -5,7 +5,7 @@
 // import FadeIn from '../components/FadeIn' // Update the correct path
 // import PageLink from '../components/PageLink' // Update the correct path
 
-import { GridList } from "./GridList"
+import { GridPattern } from "./GridPattern"
 import { SectionIntro } from "./SectionIntro"
 import { Container } from "./Container"
 import { FadeInStagger } from "./FadeIn"
