@@ -20,12 +20,10 @@ export function PageLinks({ title, pages, intro, className }) {
           yOffset={-270}
         />
       </div>
-
       <SectionIntro title={title} smaller>
         {/* Ensure `intro` is plain text */}
         {intro && <p>{intro}</p>}
       </SectionIntro>
-
       <Container className={intro ? 'mt-24' : 'mt-16'}>
         <FadeInStagger className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
           {pages.map((page) => (
